@@ -24,9 +24,10 @@ function onFormSubmit(e) {
       .catch(({ position, delay }) => {
         Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       })
-  
+    delay += step;
   }
 }
+
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
 
