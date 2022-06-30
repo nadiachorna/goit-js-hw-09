@@ -39,12 +39,16 @@ class Timer {
         this.intervalId = setInterval(() => {
             deltaTime = targetDate - Date.now();
             const dateComponents = convertMs(deltaTime);
+            if (dateComponents.seconds < 0) {
+                clearInterval(this.intervalId);
+                return;
+        } 
             updateTimer(dateComponents);
         }, 1000);
     };
-    stop() {
-          clearInterval(this.intervalId);  
-}
+    // // stop() {
+    // clearInterval(this.intervalId);
+    // // }
 }
 
 const timer = new Timer();
@@ -53,9 +57,7 @@ refs.startBtn.disabled = true;
 
 refs.startBtn.addEventListener('click', () => {
     timer.start();
-    if (deltaTime < 0) {
-        timer.stop();
-        }
+    refs.startBtn.disabled = true;
 }
 )
 
