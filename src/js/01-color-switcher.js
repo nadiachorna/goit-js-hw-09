@@ -28,7 +28,7 @@ function onStopBtnClick(e) {
     e.preventDefault();
     clearInterval(intervalId);
 
-    refs.startBtn.disabled = true;
+    // refs.startBtn.disabled = true;
     refs.startBtn.addEventListener('click', onStartBtnClick);
      
 }
