@@ -18,10 +18,9 @@ function onStartBtnClick(e) {
     e.preventDefault();
     intervalId = setInterval(() => {
         refs.bodyEl.style.backgroundColor = getRandomHexColor();
-        refs.startBtn.disabled = true;
     }, 1000);
-    
-    // refs.startBtn.removeEventListener('click', onStartBtnClick);
+    refs.startBtn.disabled = true;
+    refs.startBtn.removeEventListener('click', onStartBtnClick);
 };
 
 function onStopBtnClick(e) {
@@ -29,6 +28,6 @@ function onStopBtnClick(e) {
     clearInterval(intervalId);
 
     refs.startBtn.disabled = false;
-    // refs.startBtn.addEventListener('click', onStartBtnClick);
+    refs.startBtn.addEventListener('click', onStartBtnClick);
      
 }
