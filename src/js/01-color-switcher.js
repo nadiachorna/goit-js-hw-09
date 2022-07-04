@@ -16,19 +16,19 @@ function getRandomHexColor() {
 
 function onStartBtnClick(e) {
     e.preventDefault();
-    refs.startBtn.disabled = false;
     intervalId = setInterval(() => {
         refs.bodyEl.style.backgroundColor = getRandomHexColor();
+        refs.startBtn.disabled = true;
     }, 1000);
     
-    refs.startBtn.removeEventListener('click', onStartBtnClick);
+    // refs.startBtn.removeEventListener('click', onStartBtnClick);
 };
 
 function onStopBtnClick(e) {
     e.preventDefault();
     clearInterval(intervalId);
 
-    // refs.startBtn.disabled = true;
-    refs.startBtn.addEventListener('click', onStartBtnClick);
+    refs.startBtn.disabled = false;
+    // refs.startBtn.addEventListener('click', onStartBtnClick);
      
 }
